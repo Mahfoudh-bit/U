@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لعبة التحدي والسؤال</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- شاشة البداية -->
+    <div class="screen" id="start-screen">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-gamepad"></i>
+                <h1>لعبة التحدي والسؤال</h1>
+            </div>
+            <div class="password-container">
+                <input type="password" id="password-input" placeholder="أدخل كلمة المرور">
+                <button id="password-btn">دخول</button>
+                <p class="error-message" id="password-error"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- شاشة إضافة اللاعبين -->
+    <div class="screen hidden" id="players-screen">
+        <div class="container">
+            <h2>أضف أسماء اللاعبين</h2>
+            <div class="players-container">
+                <div class="player-input">
+                    <input type="text" class="player-name" placeholder="اسم اللاعب 1">
+                    <button class="remove-player"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="player-input">
+                    <input type="text" class="player-name" placeholder="اسم اللاعب 2">
+                    <button class="remove-player"><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+            <div class="buttons-container">
+                <button id="add-player-btn"><i class="fas fa-plus"></i> إضافة لاعب</button>
+                <button id="start-game-btn">ابدأ اللعبة</button>
+            </div>
+            <p class="error-message" id="players-error"></p>
+        </div>
+    </div>
+
+    <!-- شاشة اللعبة -->
+    <div class="screen hidden" id="game-screen">
+        <div class="container">
+            <div class="game-header">
+                <div class="current-player">
+                    <h3>دور: <span id="current-player-name">اللاعب 1</span></h3>
+                </div>
+                <div class="scores-toggle">
+                    <button id="show-scores-btn"><i class="fas fa-trophy"></i> النقاط</button>
+                </div>
+            </div>
+            
+            <div class="game-content">
+                <div class="card-container">
+                    <div class="card" id="question-card">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <h3>سؤال</h3>
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                            <div class="card-back">
+                                <p id="question-text">نص السؤال هنا</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card" id="challenge-card">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <h3>تحدي</h3>
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <div class="card-back">
+                                <p id="challenge-text">نص التحدي هنا</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="game-actions">
+                    <button id="completed-btn" class="action-btn">تم الإنجاز</button>
+                    <button id="skip-btn" class="action-btn">تخطي</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- شاشة النقاط -->
+    <div class="modal hidden" id="scores-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>النقاط</h3>
+                <button id="close-scores-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <ul id="scores-list">
+                    <!-- سيتم إضافة اللاعبين ونقاطهم هنا بواسطة JavaScript -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- شاشة نهاية اللعبة -->
+    <div class="modal hidden" id="game-over-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>انتهت اللعبة!</h3>
+            </div>
+            <div class="modal-body">
+                <div id="winner-container">
+                    <h4>الفائز</h4>
+                    <p id="winner-name">اسم الفائز</p>
+                    <div class="winner-trophy">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                </div>
+                <div id="final-scores-container">
+                    <h4>النتائج النهائية</h4>
+                    <ul id="final-scores-list">
+                        <!-- سيتم إضافة اللاعبين ونقاطهم النهائية هنا بواسطة JavaScript -->
+                    </ul>
+                </div>
+                <button id="play-again-btn">العب مرة أخرى</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
